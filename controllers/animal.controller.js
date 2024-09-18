@@ -1,4 +1,4 @@
-const Animal = require("../models/animals.model");
+const Animal = require("../models/animal.model");
 
 async function buscarAnimalesPorTipoProvinciaOComunidad(raza, sexo, edad) {
 	const filtro = {};
