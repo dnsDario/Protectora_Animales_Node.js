@@ -1,8 +1,8 @@
 const Animal = require("../models/animal.model");
 
-async function buscarAnimalesPorTipoProvinciaOComunidad(raza, sexo, edad) {
+async function buscarAnimalesPorAtributo(tipo, raza, sexo, edad) {
 	const filtro = {};
-
+	tipo && tipo !== "" ? filtro.tipo = tipo : false;
 	raza && raza !== "" ? filtro.raza = raza : false;
 	sexo && sexo !== "" ? filtro.sexo = sexo : false;
 	edad && edad !== "" ? filtro.edad = edad : false;
@@ -31,6 +31,7 @@ async function crearAnimal(animal) {
 	const nuevoAnimal = new Animal({
 		nombre: animal.nombre,
 		img: animal.img,
+		tipo: animal.tipo,
 		raza: animal.raza,
 		sexo: animal.sexo,
 		edad: animal.edad,
@@ -59,6 +60,7 @@ async function cambiarAnimal(id, animal) {
 	const modificacionAnimal = {
 		nombre: animal.nombre,
 		img: animal.img,
+		tipo: animal.tipo,
 		raza: animal.raza,
 		sexo: animal.sexo,
 		edad: animal.edad,
@@ -68,7 +70,7 @@ async function cambiarAnimal(id, animal) {
 }
 
 module.exports = {
-	buscarAnimalesPorTipoProvinciaOComunidad,
+	buscarAnimalesPorAtributo,
 	buscarAnimalPorId,
 	crearAnimal,
 	borrarAnimalPorId,

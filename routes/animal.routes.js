@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {
-  buscarAnimalesPorTipoProvinciaOComunidad,
+  buscarAnimalesPorAtributo,
   buscarAnimalPorId,
   crearAnimal,
   borrarAnimalPorId,
@@ -14,7 +14,7 @@ const { estaAutenticado, esAdmin} = require("../middleware/auth.middleware");
  */
 router.get("/", estaAutenticado, async (req, res) => {
   try {
-    const animalesEncontrados = await buscarAnimalesPorTipoProvinciaOComunidad(req.query.raza, req.query.sexo, req.query.edad);
+    const animalesEncontrados = await buscarAnimalesPorAtributo(req.query.tipo, req.query.raza, req.query.sexo, req.query.edad);
     return res.json({msg: "animales encontrados:", animalesEncontrados});
   } catch (error) {
     console.log(error);
