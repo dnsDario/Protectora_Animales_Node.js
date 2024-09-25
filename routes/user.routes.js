@@ -18,7 +18,7 @@ const {pwdIguales, middleWareVerifYCambioContrasena} = require ("../middleware/u
 /**
  * Ruta para buscar usuarios a través de la query "?email="
  */
-router.get("/", esAdmin, async (req, res) => {
+router.get("/", /* esAdmin, */ async (req, res) => {
   try {
     const usuariosEncontrados = await buscarUsuarios(req.query.email);
     return res.json({
@@ -33,7 +33,7 @@ router.get("/", esAdmin, async (req, res) => {
 /**
  * Ruta para registrar un usuario
  */
-router.post("/registrar", pwdIguales, async (req, res) => {
+router.post("/register", pwdIguales, async (req, res) => {
   try {
     const usuarioRegistrado = await registrar(req.body);
     return res.json({ msg: "registro correcto", usuarioRegistrado });

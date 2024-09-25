@@ -6,7 +6,7 @@ const animalSchema = new mongoose.Schema({
     tipo: {type: String, required: false},
     raza: {type: String, required: false},
     sexo: {type: String, required: true},
-    edad: {type: Number, required: false}, 
+    edad: {type: String, required: false}, 
 })
 
 module.exports = mongoose.model("animales", animalSchema)
